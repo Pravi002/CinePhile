@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from store.views import RegView,LoginView,HomeView
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 
@@ -25,6 +27,6 @@ urlpatterns = [
     path('register/',RegView.as_view(),name="register"),
     path('login/',LoginView.as_view(),name="login"),
     path('',HomeView.as_view(),name="home"),
-    
+
  
-]
+]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

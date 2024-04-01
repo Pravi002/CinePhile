@@ -44,7 +44,7 @@ class LoginView(View):
                 return redirect("home")
             else:
                 print("invalid credential")
-                return redirect("register")
+                return render(request,"login.html",{"form":form})
             
 
 class LogoutView(View):
