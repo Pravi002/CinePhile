@@ -1,8 +1,14 @@
 from django.shortcuts import render,redirect
 from django.views.generic import View
 from store.forms import RegForm,LoginForm
+from store.models import Category
 from django.contrib.auth import authenticate,login,logout
 
+
+class HomeView(View):
+    def get(self,request,*args,**kwargs):
+        form=Category.objects.all()
+        return render(request,"home.html",{"form":form})
 
 
 class RegView(View):
