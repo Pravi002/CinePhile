@@ -6,15 +6,15 @@ MOvies
 
 {% block main %}
 
-<style>
+<!-- <style>
   .card:hover .card-img-top{
     transform: scale(1.06);
   }
   
-</style>
+</style> -->
 
 
-<div class="container-fluid mt-5">       
+<!-- <div class="container-fluid mt-5">       
   <div class="h4 pb-2 mb-2 text-danger text-center  my-3">MOVIES</div>                  
   <div class="row ">                 
       {% for i in form %}         
@@ -24,9 +24,21 @@ MOvies
               <!-- <div class="card-body">                   
                   <p class="card-title ">{{i.name}}</p>      
               </div>             -->
-          </div>          
+          <!-- </div>          
       </div>      
       {% endfor %}
+  </div> --> -->
+
+<div class="container-fluid mt-5">  
+  {% for i in form %} 
+  <div>
+   <h2>{{i.name}}</h2>
+    <div>
+      {{i.discription}}
+    </div>
   </div>
+  {% endfor %}
+</div>
+
 
 {% endblock main %}
