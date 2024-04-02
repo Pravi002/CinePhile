@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+MOvies
+{% endblock title %}
+
+{% block main %}
+
+<style>
+  .card:hover .card-img-top{
+    transform: scale(1.06);
+  }
+  
+</style>
+
+
+<div class="container-fluid mt-5">       
+  <div class="h4 pb-2 mb-2 text-danger text-center  my-3">{{ name.name }}</div>                  
+  <div class="row ">                 
+      {% for i in data %}         
+      <div class="col-md-2">         
+          <div class="card border-2" style="width: 13.7rem ;">  
+            <!-- <a href="{% url 'p_detail' product.id %}">    -->
+              <img src="{{ i.image.url }}" class="card-img-top" alt="{{ i.name }}" height="250px">
+          </div>          
+      </div>      
+      {% endfor %}
+  </div>
+
+
+{% endblock main %}
