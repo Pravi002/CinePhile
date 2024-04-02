@@ -1,0 +1,39 @@
+{% extends 'indexbase.html' %}
+{% load static %}
+{% block title %}
+MOvies
+{% endblock title %}
+
+{% block main %}
+
+    <style>
+        .text1:hover {
+          transform: scale(1.2);
+          background-color: rgb(177, 209, 209);
+          
+        }
+        .text2:hover {
+          transform: scale(1.2);
+          background-color: rgb(177, 209, 209);
+        }
+        
+      </style>
+
+    <div class="container d-flex justify-content-around  ">
+        <form action="" method="post" class="bg-info-subtle m-5 p-5 w-50  rounded-3">
+            {%csrf_token%}
+           <p class="fw-bold fs-4 text-center"> LOGIN</p>
+            <hr class="mb-5 w-20 border-4 ">
+            <div class=" text-center">
+                <input type="text"  class="text1 form-control  text-center " style="height: 60px;"  name="username" placeholder="Enter Username"><br>
+                <input type="text" class="text2 form-control  text-center" style="height: 60px;" name="password" placeholder="Password"><br>
+
+                <button type="submit" class="btn btn-primary  w-50 mt-5 mb-5">Login</button>
+                <br>
+                <p>Or<br>Create an Account</p>
+                <a href="{% url 'register' %}" class="btn btn-outline-success w-25">Register</a>
+            </div>
+        </form>
+    </div>
+
+    {% endblock main %}

@@ -1,0 +1,86 @@
+{% extends 'indexbase.html' %}
+{% load static %}
+{% block title %}
+MOvies
+{% endblock title %}
+
+{% block main %}
+      <style>
+
+        .label1:hover {
+          transform: scale(1.2);
+          
+        }
+        .label2:hover {
+          transform: scale(1.2);
+          
+        }
+        .label3:hover {
+          transform: scale(1.2);
+          
+        }
+        .label4:hover {
+          transform: scale(1.2);
+          
+        }
+        .label5:hover {
+          transform: scale(1.2);
+          
+        }
+        .label6:hover {
+          transform: scale(1.2);          
+        }
+       
+      </style>     
+    <div class="container d-flex justify-content-around  ">
+        <form action="" method="post" class="bg-info-subtle m-5 p-5 w-50  ">
+          {%csrf_token%}
+            <p class="fw-bold fs-3 text-center"> REGISTER</p>
+            <hr class="mb-5 w-20 border-4 ">
+             <div class=" text-center">
+               <div class="row">
+                <div class="label1 mb-4">  
+                 {{form.username}}
+                 {% if form.errors.username %}
+                 <label for="" class="form-label text-danger">{{form.errors}}</label>
+                 {%endif%}
+                </div>
+                <div class="label2 mb-4">
+                   {{form.first_name}}
+                    {% if form.errors.first_name %}
+                    <label for="" class="form-label text-danger">{{form.errors}}</label>
+                    {%endif%}
+                </div>
+                <div class=" label3 mb-4">
+                    {{form.last_name}}
+                    {% if form.errors.last_name %}
+                    <label for="" class="form-label text-danger">{{form.errors}}</label>
+                    {%endif%}
+                </div>
+                <div class="label4 mb-4">
+                    {{form.email}}
+                    {% if form.errors.email %}
+                    <label for="" class="form-label text-danger">{{form.errors}}</label>
+                    {%endif%}
+                </div>
+                <div class="label5 mb-4">
+                     {{form.password1}}
+                    {% if form.errors.password1 %}
+                    <label for="" class="form-label text-danger">{{form.errors}}</label>
+                    {%endif%}
+                </div>
+                <div class="label6 mb-4">
+                    {{form.password2}}
+                    {% if form.errors.password2 %}
+                    <label for="" class="form-label text-danger">{{form.errors}}</label>
+                    {%endif%}
+                </div>
+           <div style="align-items: center;">
+             <button class="btn btn-primary w-50 mt-5 mb-5" type="submit">Register</button>
+            </div>
+        </div>
+      </div>
+     </form>
+    </div>
+
+{% endblock main %}
