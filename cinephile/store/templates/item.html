@@ -1,9 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'index.html' %}
 {% load static %}
 {% block title %}
-MOvies
-{% endblock title %}
 
+{% endblock title %}
+{{name.name}}
 {% block main %}
 
 <style>
@@ -14,13 +14,13 @@ MOvies
 </style>
 
 
-<div class="container-fluid mt-5">       
-  <div class="h4 pb-2 mb-2 text-danger text-center  my-3">{{ name.name }}</div>                  
+<div class="container-fluid mt-3"> <br> 
+  <div class="h4 pb-2 mb-2 text-center  my-3" style="font-size:xx-large; color: brown;">{{ name.name }}</div>                  
   <div class="row ">                 
       {% for i in data %}         
       <div class="col-md-2">         
           <div class="card border-2" style="width: 13.7rem ;">  
-            <!-- <a href="{% url 'p_detail' product.id %}">    -->
+            <a href="{% url 'item_detail' product.id %}">   
               <img src="{{ i.image.url }}" class="card-img-top" alt="{{ i.name }}" height="250px">
           </div>          
       </div>      

@@ -32,13 +32,15 @@ CinePhile
 <div class="container-fluid mt-5">  
   {% for i in form %} 
   <div>
-   <h2>{{i.name}}</h2>
+    <a href="{% url 'item' i.id %}" style="display:contents; color: black;">
+      <h2>{{i.name}}</h2>
+    </a>
     <div>
       {{i.discription}}
-    </div>
+    </div><br>
   </div>
   {% endfor %}
-</div>
+</div><br>
 
 
 {% endblock main %}
