@@ -6,41 +6,30 @@ CinePhile
 
 {% block main %}
 
-<!-- <style>
+<style>
   .card:hover .card-img-top{
     transform: scale(1.06);
   }
   
-</style> -->
+</style>
 
 
-<!-- <div class="container-fluid mt-5">       
+<div class="container-fluid mt-5 ">       
   <div class="h4 pb-2 mb-2 text-danger text-center  my-3">MOVIES</div>                  
   <div class="row ">                 
       {% for i in form %}         
       <div class="col-md-2">         
           <div class="card border-2" style="width: 13.7rem ;">     
-              <img src="{{ i.image.url }}" class="card-img-top" alt={{i.name}} height="250px"> -->
-              <!-- <div class="card-body">                   
-                  <p class="card-title ">{{i.name}}</p>      
-              </div>             -->
-          <!-- </div>          
+              <img src="{{ i.image.url }}" class="card-img-top" alt={{i.title}} height="250px">
+              <div class="card-body" style="background-color: rgb(41, 37, 37);">                   
+                  <p class="card-title " style="color: bisque;">{{i.title}}</p>      
+              </div>            
+          </div>          
       </div>      
       {% endfor %}
-  </div> --> 
+  </div> 
 
-<div class="container-fluid mt-5">  
-  {% for i in form %} 
-  <div>
-    <a href="{% url 'item' i.id %}" style="display:contents; color: black;">
-      <h2>{{i.name}}</h2>
-    </a>
-    <div>
-      {{i.discription}}
-    </div><br>
-  </div>
-  {% endfor %}
-</div><br>
+
 
 
 {% endblock main %}

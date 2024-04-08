@@ -1,13 +1,13 @@
 from django.shortcuts import render,redirect
 from django.views.generic import View
 from store.forms import RegForm,LoginForm
-from store.models import Category,Item
+from store.models import MOVIE
 from django.contrib.auth import authenticate,login,logout
 
 
 class HomeView(View):
     def get(self,request,*args,**kwargs):
-        form=Category.objects.all()
+        form=MOVIE.objects.all()
         return render(request,"home.html",{"form":form})
 
 
@@ -53,16 +53,16 @@ class LogoutView(View):
         return redirect("home")
     
 
-class ItemView(View):
-    def get(self,request,*args,**kwargs):
-        id=kwargs.get("pk")
-        data=Item.objects.filter(category_id=id)
-        name=Category.objects.get(id=id)
-        return render(request,"item.html",{"data":data ,"name":name})
+# class ItemView(View):
+#     def get(self,request,*args,**kwargs):
+#         id=kwargs.get("pk")
+#         data=Item.objects.filter(category_id=id)
+#         name=Category.objects.get(id=id)
+#         return render(request,"item.html",{"data":data ,"name":name})
     
 
-class ItemDetailView(View):
-    def get(self,request,*args,**kwargs):
-        id=kwargs.get("pk")
-        data=Item.objects.filter(id=id)
-        return render(request,"item_detail.html",{"data":data})
+# class ItemDetailView(View):
+#     def get(self,request,*args,**kwargs):
+#         id=kwargs.get("pk")
+#         data=Item.objects.filter(id=id)
+#         return render(request,"item_detail.html",{"data":data})

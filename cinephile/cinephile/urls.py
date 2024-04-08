@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from store.views import RegView,LoginView,HomeView,LogoutView,ItemView,ItemDetailView
+from store.views import RegView,LoginView,LogoutView,HomeView #,ItemView,ItemDetailView
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -28,7 +28,7 @@ urlpatterns = [
     path('login/',LoginView.as_view(),name="login"),
     path('logout/',LogoutView.as_view(),name="logout"),
     path('',HomeView.as_view(),name="home"),
-    path('item/<int:pk>/',ItemView.as_view(),name="item"),
-    path('itemdetail/<int:pk>/',ItemDetailView.as_view(),name="item_detail"),
+    # path('item/<int:pk>/',ItemView.as_view(),name="item"),
+    # path('itemdetail/<int:pk>/',ItemDetailView.as_view(),name="item_detail"),
  
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
