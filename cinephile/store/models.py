@@ -16,7 +16,7 @@ STATUS_CHOICES=(('MP','MOST-POPULAR'),('TR','TOP-RATED'),('MA','MOST-ANTICIPATED
                 ('CS','COMING-SOON'),('EG','EVER-GREEN'),('cL','CLASSIC'),('BB','BLOCK-BUSTER'))
 
 
-class MOVIE(models.Model):
+class Movie(models.Model):
     title=models.CharField(max_length=50)
     discription=models.TextField()
     image=models.ImageField(upload_to='movie_images')

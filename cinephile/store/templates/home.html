@@ -19,8 +19,10 @@ CinePhile
   <div class="row ">                 
       {% for i in form %}         
       <div class="col-md-2">         
-          <div class="card border-2" style="width: 13.7rem ;">     
+          <div class="card border-2" style="width: 13.7rem ;">    
+            <a href="{% url 'movie_detail' i.id %}">
               <img src="{{ i.image.url }}" class="card-img-top" alt={{i.title}} height="250px">
+            </a> 
               <div class="card-body" style="background-color: rgb(41, 37, 37);">                   
                   <p class="card-title " style="color: bisque;">{{i.title}}</p>      
               </div>            
