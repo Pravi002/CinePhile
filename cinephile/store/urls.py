@@ -12,5 +12,7 @@ urlpatterns = [
     path('logout/',views.LogoutView.as_view(),name="logout"),
     path('movie/<int:pk>/',views.MovieView.as_view(),name="movie"),
     path('moviedetail/<int:pk>/',views.MovieDetailView.as_view(),name="movie_detail"),
+    path('watchlist/<int:pk>/',views.WatchListView.as_view(),name="watchlist"),
+    path('watchlistdetail/',views.WatchListDetail.as_view(),name="watchlist_detail"),
  
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

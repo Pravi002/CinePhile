@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.views.generic import View
 from store.forms import RegForm,LoginForm
-from store.models import Movie
+from store.models import Movie,WatchList
 from django.contrib.auth import authenticate,login,logout
 from django.utils.decorators import method_decorator
 
@@ -78,11 +78,18 @@ class MovieDetailView(View):
         return render(request,"movie_detail.html",{"data":data})
 
 
-# @method_decorator(signin_required,name="dispatch")
-# class CartView(View):
-#     def get(self,request,*args,**kwargs):
-#         id=kwargs.get("pk")
-#         data=Movie.objects.get(id=id)
-#         WatchList.objects.create(item=data,user=request.user)
-#         print("Added successfully")
-#         return redirect("c_detail")
+@method_decorator(signin_required,name="dispatch")
+class WatchListView(View):
+    def get(self,request,*args,**kwargs):
+        id=kwargs.get("pk")
+        data=Movie.objects.get(id=id)
+        WatchList.objects.create(item=data,user=request.user)
+        print("Added successfully")
+        return redirect("watchlist_detail")
+    
+
+@method_decorator(signin_required,name="dispatch")
+class WatchListDetail(View):
+    def get(self,request,*args,**kwargs):
+        data=WatchList.objects.filter(user=request.user)
+        return render(request,"mywatchlist.html",{"data":data})
