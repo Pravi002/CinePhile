@@ -23,7 +23,7 @@ Login
               <a href="{% url 'movie_detail' i.item.id %}">
                 <img src="{{ i.item.image.url }}" class="card-img-top" alt="" height="260px">
               </a>
-              <button>delte</button>            
+              <a class="btn btn-success" href="{% url 'delete_watchlist' i.id %}" style="text-decoration: none;">Remove WatchList</a>           
             </div>          
         </div>      
         {% endfor %}

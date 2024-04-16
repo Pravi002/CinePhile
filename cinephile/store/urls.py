@@ -14,5 +14,7 @@ urlpatterns = [
     path('moviedetail/<int:pk>/',views.MovieDetailView.as_view(),name="movie_detail"),
     path('watchlist/<int:pk>/',views.WatchListView.as_view(),name="watchlist"),
     path('watchlistdetail/',views.WatchListDetail.as_view(),name="watchlist_detail"),
+    path('deletewatchlist/<int:pk>/',views.WatchListDelete.as_view(),name="delete_watchlist"),
+    
  
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

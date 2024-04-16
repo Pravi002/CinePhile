@@ -93,3 +93,12 @@ class WatchListDetail(View):
     def get(self,request,*args,**kwargs):
         data=WatchList.objects.filter(user=request.user)
         return render(request,"mywatchlist.html",{"data":data})
+    
+
+@method_decorator(signin_required,name="dispatch")
+class WatchListDelete(View):
+    def get(self,request,*args,**kwargs):
+        id=kwargs.get("pk")
+        WatchList.objects.get(id=id).delete()
+
+        return redirect("watchlist_detail")
