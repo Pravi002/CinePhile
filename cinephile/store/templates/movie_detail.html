@@ -1,11 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>Welcome</h2>
-</body>
-</html>
+{% extends 'index.html' %}
+{% load static %}
+
+{% block main %}
+
+
+ <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    
+    .movie-details {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+    }
+    
+    .info {
+        margin-left: 20px;
+    }
+    
+    button {
+        
+        padding: 10px;
+        background-color: #3498db;
+        color: #080808f8;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+    background-color: #2980b9;
+    }
+    </style> 
+    {% for i in data %} 
+<!-- <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 d-flex align-items-stretch pb-3"> -->
+<div class="movie-details" style="margin-top: 3rem;">
+    <div class="card-img-top">
+        <img src ='{{ i.image.url}}'  alt="{{i.title}}" height="450px" width="350px">
+        <h5 style="margin-left: 30px; margin-top: 10px;">Views :{{i.views}}</h5>
+
+    </div>
+    <div class="card-body" >
+        <h1><b>{{i.title}}</b></h1>
+        <h3><b> Directed By:</b> {{i.Director}}</h3>
+        <h4 style="margin-top: 3rem;"><b>Genre:</b> {{i.genre}}</h4>
+        <p>{{i.discription}}</p><br>
+        <p><b>Language:</b> {{i.language}}</p>
+        <p><b>Cast:</b> {{i.cast}}</p>
+        <p><b>Release Date:</b> {{i.year}}</p><br>
+        <h3><b>Plot </b></h3>
+        <p>{{i.plot}}</p>
+
+        <a class="btn btn-success" href="" style="text-decoration: none;">Add to WatchList</a>
+        <a class="btn btn-success" href="" style="text-decoration: none;">Add to Diary</a>
+        
+    </div>
+</div>
+
+{% endfor %}
+{% endblock main %}

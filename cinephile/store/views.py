@@ -3,6 +3,17 @@ from django.views.generic import View
 from store.forms import RegForm,LoginForm
 from store.models import Movie
 from django.contrib.auth import authenticate,login,logout
+from django.utils.decorators import method_decorator
+
+
+def signin_required(fn):
+    def wrapper(request,*args,**kwargs):
+        if request.user.is_authenticated:
+            return fn(request,*args,**kwargs)
+        else:
+            return redirect("login")
+    return wrapper
+
 
 
 class HomeView(View):
@@ -60,8 +71,18 @@ class MovieView(View):
         return render(request,"item.html",{"data":data})
     
 
-# class ItemDetailView(View):
+class MovieDetailView(View):
+    def get(self,request,*args,**kwargs):
+        id=kwargs.get("pk")
+        data=Movie.objects.filter(id=id)
+        return render(request,"movie_detail.html",{"data":data})
+
+
+# @method_decorator(signin_required,name="dispatch")
+# class CartView(View):
 #     def get(self,request,*args,**kwargs):
 #         id=kwargs.get("pk")
-#         data=Item.objects.filter(id=id)
-#         return render(request,"item_detail.html",{"data":data})
+#         data=Movie.objects.get(id=id)
+#         WatchList.objects.create(item=data,user=request.user)
+#         print("Added successfully")
+#         return redirect("c_detail")
