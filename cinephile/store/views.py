@@ -64,6 +64,7 @@ class LogoutView(View):
         return redirect("home")
     
 
+
 class MovieView(View):
     def get(self,request,*args,**kwargs):
         id=kwargs.get("pk")
@@ -76,6 +77,7 @@ class MovieDetailView(View):
         id=kwargs.get("pk")
         data=Movie.objects.filter(id=id)
         return render(request,"movie_detail.html",{"data":data})
+
 
 
 @method_decorator(signin_required,name="dispatch")
@@ -100,5 +102,9 @@ class WatchListDelete(View):
     def get(self,request,*args,**kwargs):
         id=kwargs.get("pk")
         WatchList.objects.get(id=id).delete()
-
         return redirect("watchlist_detail")
+    
+
+
+
+    
