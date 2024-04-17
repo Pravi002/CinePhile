@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 
 
 LANGUAGE_CHOICES=(
-    ('english','ENGLISH'),('malayalam','MALAYALAM'),('tamil','TAMIL'),('telugu','TELUGU'),('kannada','KANNADA'),
-    ('hindi','HINDI'),('korean','KOREAN'),('french','FRENCH'),('germen','GERMEN'),('chinease','CHINEASE'))
+    ('malayalam','MALAYALAM'),('tamil','TAMIL'),('english','ENGLISH'),('telugu','TELUGU'),('kannada','KANNADA'),
+    ('hindi','HINDI'),('korean','KOREAN'),('french','FRENCH'),('germen','GERMEN'),('chinese','CHINESE'),('japanese','JAPANESE'))
 
 GENRE_CHOICES=(('action','ACTION'),('sci-fi','SCI-FI'),('comedy','COMEDY'),('thriller','THRILLER'),
                ('horror','HORROR'),('drama','DRAMA'),('war','WAR'),('historic','HISTORIC'),
@@ -43,4 +43,5 @@ class WatchList(models.Model):
 class Diary(models.Model):
     item=models.ForeignKey(Movie,on_delete=models.CASCADE)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    date=models.DateTimeField()
+    date=models.DateField(auto_now_add=True)
+

@@ -18,6 +18,7 @@ urlpatterns = [
     path('diary/<int:pk>/',views.DiaryView.as_view(),name="diary"),
     path('diarydetail/',views.DiaryDetail.as_view(),name="diary_detail"),
     path('deletediary/<int:pk>/',views.DiaryDelete.as_view(),name="delete_diary"),
-    path('updatediary/<int:pk>/',views.DiaryUpdate.as_view(),name="update_diary"),
+    path('myprofile/',views.ProfileView.as_view(),name="myprofile"),
+
  
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

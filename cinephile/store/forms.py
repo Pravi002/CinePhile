@@ -23,7 +23,4 @@ class LoginForm(forms.Form):
     
 
 
-class DiaryForm(forms.ModelForm):
-    class Meta:
-        model=Diary
-        fields=["date"]
+

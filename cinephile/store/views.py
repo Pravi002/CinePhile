@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.views.generic import View
-from store.forms import RegForm,LoginForm,DiaryForm
+from store.forms import RegForm,LoginForm
 from store.models import Movie,WatchList,Diary
 from django.contrib.auth import authenticate,login,logout
 from django.utils.decorators import method_decorator
@@ -119,7 +119,7 @@ class DiaryView(View):
 @method_decorator(signin_required,name="dispatch")
 class DiaryDetail(View):
     def get(self,request,*args,**kwargs):
-        data=Diary.objects.filter(user=request.user)
+        data=Diary.objects.filter(user=request.user) #.order_by('watched')
         return render(request,"mydiary.html",{"data":data})
     
 
@@ -130,20 +130,9 @@ class DiaryDelete(View):
         Diary.objects.get(id=id).delete()
         return redirect("diary_detail")
 
-class DiaryUpdate(View):
+
+
+class ProfileView(View):
     def get(self,request,*args,**kwargs):
-        data=kwargs.get("pk")
-        obj=Diary.objects.get(id=data)
-        form=DiaryForm(instance=obj)
-        return render(request,"update_diary.html",{"form":form})
-    
-    def post(self,request,*args,**kwargs):
-        data=kwargs.get("pk")
-        obj=Diary.objects.get(id=data)
-        form=DiaryForm(request.POST,instance=obj)
-        if form.is_valid():
-            form.save()
-        else:
-            print("get out")
-        return redirect("diary_detail")
-    
+        
+        return render(request,"myprofile.html")

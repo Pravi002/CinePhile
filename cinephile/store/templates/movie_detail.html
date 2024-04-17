@@ -55,7 +55,7 @@
         <p>{{i.plot}}</p>
 
         <a class="btn btn-success" href="{% url 'watchlist' i.id %}" style="text-decoration: none;">Add to WatchList</a>
-        <a class="btn btn-success" href="" style="text-decoration: none;">Add to Diary</a>
+        <a class="btn btn-success" href="{% url 'diary' i.id %}" style="text-decoration: none;">Add to Diary</a>
         
     </div>
 </div>
