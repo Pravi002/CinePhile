@@ -15,6 +15,9 @@ urlpatterns = [
     path('watchlist/<int:pk>/',views.WatchListView.as_view(),name="watchlist"),
     path('watchlistdetail/',views.WatchListDetail.as_view(),name="watchlist_detail"),
     path('deletewatchlist/<int:pk>/',views.WatchListDelete.as_view(),name="delete_watchlist"),
-    
+    path('diary/<int:pk>/',views.DiaryView.as_view(),name="diary"),
+    path('diarydetail/',views.DiaryDetail.as_view(),name="diary_detail"),
+    path('deletediary/<int:pk>/',views.DiaryDelete.as_view(),name="delete_diary"),
+    path('updatediary/<int:pk>/',views.DiaryUpdate.as_view(),name="update_diary"),
  
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

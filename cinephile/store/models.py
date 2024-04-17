@@ -43,4 +43,4 @@ class WatchList(models.Model):
 class Diary(models.Model):
     item=models.ForeignKey(Movie,on_delete=models.CASCADE)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    date=models.DateTimeField(auto_now_add=True)
+    date=models.DateTimeField()

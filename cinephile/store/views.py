@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.views.generic import View
-from store.forms import RegForm,LoginForm
-from store.models import Movie,WatchList
+from store.forms import RegForm,LoginForm,DiaryForm
+from store.models import Movie,WatchList,Diary
 from django.contrib.auth import authenticate,login,logout
 from django.utils.decorators import method_decorator
 
@@ -106,5 +106,44 @@ class WatchListDelete(View):
     
 
 
+@method_decorator(signin_required,name="dispatch")
+class DiaryView(View):
+    def get(self,request,*args,**kwargs):
+        id=kwargs.get("pk")
+        data=Movie.objects.get(id=id)
+        Diary.objects.create(item=data,user=request.user)
+        print("Added successfully")
+        return redirect("diary_detail")
+    
 
+@method_decorator(signin_required,name="dispatch")
+class DiaryDetail(View):
+    def get(self,request,*args,**kwargs):
+        data=Diary.objects.filter(user=request.user)
+        return render(request,"mydiary.html",{"data":data})
+    
+
+@method_decorator(signin_required,name="dispatch")
+class DiaryDelete(View):
+    def get(self,request,*args,**kwargs):
+        id=kwargs.get("pk")
+        Diary.objects.get(id=id).delete()
+        return redirect("diary_detail")
+
+class DiaryUpdate(View):
+    def get(self,request,*args,**kwargs):
+        data=kwargs.get("pk")
+        obj=Diary.objects.get(id=data)
+        form=DiaryForm(instance=obj)
+        return render(request,"update_diary.html",{"form":form})
+    
+    def post(self,request,*args,**kwargs):
+        data=kwargs.get("pk")
+        obj=Diary.objects.get(id=data)
+        form=DiaryForm(request.POST,instance=obj)
+        if form.is_valid():
+            form.save()
+        else:
+            print("get out")
+        return redirect("diary_detail")
     
