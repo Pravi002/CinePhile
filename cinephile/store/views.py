@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.views.generic import View
+from django.views.generic import View,ListView
 from store.forms import RegForm,LoginForm
 from store.models import Movie,WatchList,Diary
 from django.contrib.auth import authenticate,login,logout
@@ -63,13 +63,6 @@ class LogoutView(View):
         logout(request)
         return redirect("home")
     
-
-
-class MovieView(View):
-    def get(self,request,*args,**kwargs):
-        id=kwargs.get("pk")
-        data=Movie.objects.filter(category_id=id)
-        return render(request,"item.html",{"data":data})
     
 
 class MovieDetailView(View):
@@ -77,6 +70,25 @@ class MovieDetailView(View):
         id=kwargs.get("pk")
         data=Movie.objects.filter(id=id)
         return render(request,"movie_detail.html",{"data":data})
+
+class MovieGenre(View):
+    def get(self,request,*args,**kwargs):
+        genre=kwargs.get("genre")
+        data=Movie.objects.filter(genre=genre)
+        return render(request,"genre.html",{"data":data})
+
+
+# class MovieGenre(ListView):
+#     model=Movie
+#     paginate_by=1
+
+#     def get_querset(self):
+#         self.genre= self.kwargs['genre']
+#         return Movie.objects.filter(genre=self.genre)
+#     def get_context_data(self,**kwargs):
+#         context=super(MovieGenre, self).get_context_data(**kwargs)
+#         context['genre']= self.genre
+#         return context
 
 
 

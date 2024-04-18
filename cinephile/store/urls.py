@@ -10,7 +10,6 @@ urlpatterns = [
     path('register/',views.RegView.as_view(),name="register"),
     path('login/',views.LoginView.as_view(),name="login"),
     path('logout/',views.LogoutView.as_view(),name="logout"),
-    path('movie/<int:pk>/',views.MovieView.as_view(),name="movie"),
     path('moviedetail/<int:pk>/',views.MovieDetailView.as_view(),name="movie_detail"),
     path('watchlist/<int:pk>/',views.WatchListView.as_view(),name="watchlist"),
     path('watchlistdetail/',views.WatchListDetail.as_view(),name="watchlist_detail"),
@@ -19,6 +18,7 @@ urlpatterns = [
     path('diarydetail/',views.DiaryDetail.as_view(),name="diary_detail"),
     path('deletediary/<int:pk>/',views.DiaryDelete.as_view(),name="delete_diary"),
     path('myprofile/',views.ProfileView.as_view(),name="myprofile"),
+    path('genre/<str:genre>/',views.MovieGenre.as_view(),name="genre"),
 
  
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
