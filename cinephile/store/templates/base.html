@@ -81,32 +81,17 @@
                 Language
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Malayalam</a></li>
-                <li><a class="dropdown-item" href="#">Tamil</a></li>
-                <li><a class="dropdown-item" href="#">English</a></li>
-                <li><a class="dropdown-item" href="#">Telugu</a></li>
-                <li><a class="dropdown-item" href="#">Kannada</a></li>
-                <li><a class="dropdown-item" href="#">Hindi</a></li>
-                <li><a class="dropdown-item" href="#">Korean</a></li>
-                <li><a class="dropdown-item" href="#">French</a></li>
-                <li><a class="dropdown-item" href="#">Germen</a></li>
-                <li><a class="dropdown-item" href="#">Chinese</a></li>
-                <li><a class="dropdown-item" href="#">Japanese</a></li>
-              </ul>
-            </li>
-          </ul>
-
-          <ul class="navbar nav  ">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Year
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">1980</a></li>
-                <li><a class="dropdown-item" href="#">1990</a></li>
-                <li><a class="dropdown-item" href="#">2000</a></li>
-                <li><a class="dropdown-item" href="#">2010</a></li>
-                <li><a class="dropdown-item" href="#">2020</a></li>
+                <li><a class="dropdown-item" href="{% url 'language' 'malayalam' %}">Malayalam</a></li>
+                <li><a class="dropdown-item" href="{% url 'language' 'tamil' %}">Tamil</a></li>
+                <li><a class="dropdown-item" href="{% url 'language' 'english' %}">English</a></li>
+                <li><a class="dropdown-item" href="{% url 'language' 'telugu' %}">Telugu</a></li>
+                <li><a class="dropdown-item" href="{% url 'language' 'kannada' %}">Kannada</a></li>
+                <li><a class="dropdown-item" href="{% url 'language' 'hindi' %}">Hindi</a></li>
+                <li><a class="dropdown-item" href="{% url 'language' 'korean' %}">Korean</a></li>
+                <li><a class="dropdown-item" href="{% url 'language' 'french' %}">French</a></li>
+                <li><a class="dropdown-item" href="{% url 'language' 'germen' %}">Germen</a></li>
+                <li><a class="dropdown-item" href="{% url 'language' 'chinese' %}">Chinese</a></li>
+                <li><a class="dropdown-item" href="{% url 'language' 'japanese' %}">Japanese</a></li>
               </ul>
             </li>
           </ul>

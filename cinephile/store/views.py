@@ -71,24 +71,20 @@ class MovieDetailView(View):
         data=Movie.objects.filter(id=id)
         return render(request,"movie_detail.html",{"data":data})
 
+
+
 class MovieGenre(View):
     def get(self,request,*args,**kwargs):
         genre=kwargs.get("genre")
         data=Movie.objects.filter(genre=genre)
         return render(request,"genre.html",{"data":data})
+    
 
-
-# class MovieGenre(ListView):
-#     model=Movie
-#     paginate_by=1
-
-#     def get_querset(self):
-#         self.genre= self.kwargs['genre']
-#         return Movie.objects.filter(genre=self.genre)
-#     def get_context_data(self,**kwargs):
-#         context=super(MovieGenre, self).get_context_data(**kwargs)
-#         context['genre']= self.genre
-#         return context
+class MovieLanguage(View):
+    def get(self,request,*args,**kwargs):
+        lang=kwargs.get("language")
+        data=Movie.objects.filter(language=lang)
+        return render(request,"language.html",{"data":data})
 
 
 

@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+CinePhile
+{% endblock title %}
+
+{% block main %}
+
+    <div class="container-fluid mt-5 ">  
+            
+      <div class="h4 pb-2 mb-2 text-danger text-center  my-3">{{i.language}} MOVIES</div>                  
+        <div class="row ">                 
+            {% for i in data %}   
+            <div class="col-md-2">         
+                <div class="card border-2" style="width: 13.7rem ; margin-top: 2rem;">    
+                    <a href="{% url 'movie_detail' i.id %}">
+                        <img src="{{ i.image.url }}" class="card-img-top" alt={{i.title}} height="250px">
+                    </a> 
+                    <div class="card-body" style="background-color: rgb(41, 37, 37);">                   
+                       <p class="card-title " style="color: bisque;">{{i.title}}</p>      
+                    </div>            
+                </div>
+            </div>          
+        </div>   
+            {% empty %}
+            <h2>There Are No Movies in This Language</h2>   
+            {% endfor %}
+    </div>
+
+{% endblock main %}

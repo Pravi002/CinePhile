@@ -12,11 +12,10 @@ CinePhile
     
   </style>
 
-    <div class="container-fluid mt-5 ">  
-        {% for i in data %}      
+    <div class="container-fluid mt-5 ">        
         <div class="h4 pb-2 mb-2 text-danger text-center  my-3">{{i.genre}} MOVIES</div>                  
         <div class="row ">                 
-                    
+            {% for i in data %}        
             <div class="col-md-2">         
                 <div class="card border-2" style="width: 13.7rem ; margin-top: 2rem;">    
                   <a href="{% url 'movie_detail' i.id %}">

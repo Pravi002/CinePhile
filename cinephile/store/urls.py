@@ -19,6 +19,7 @@ urlpatterns = [
     path('deletediary/<int:pk>/',views.DiaryDelete.as_view(),name="delete_diary"),
     path('myprofile/',views.ProfileView.as_view(),name="myprofile"),
     path('genre/<str:genre>/',views.MovieGenre.as_view(),name="genre"),
+    path('language/<str:language>/',views.MovieLanguage.as_view(),name="language"),
 
  
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
